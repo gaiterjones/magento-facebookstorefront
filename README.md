@@ -1,6 +1,4 @@
 ## Magento Facebook StoreFront
-
-### Magento Application
 A simple, fast, responsive Magento CE v1.x store front application for Facebook.
 
 
@@ -22,6 +20,7 @@ https://www.facebook.com/gaiterjones-243428839036258/app/1659084167700338/
 ### Installation
 
 modman clone https://github.com/gaiterjones/magento-facebookstorefront
+modman clone https://github.com/gaiterjones/magento-paj-library
 
 
 
