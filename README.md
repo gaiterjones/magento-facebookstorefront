@@ -19,17 +19,31 @@ https://www.facebook.com/gaiterjones-243428839036258/app/1659084167700338/
 	
 ### Installation
 
+Copy all files to your Magento root folder or use modman.
+
 modman clone https://github.com/gaiterjones/magento-facebookstorefront
 modman clone https://github.com/gaiterjones/magento-paj-library
 
+Test standalone by visiting
 
+http://YOURSTORE/paj/www/MagentoFacebookStoreFront/
+
+Configure Facebook application:
+
+Facebook canvas
+Secure Canvas URL - https://YOURSTORE/paj/www/MagentoFacebookStoreFront/
+Mobile Site URL - http://YOURSTORE/paj/www/MagentoFacebookStoreFront/?mobile
+
+Website
+Site URL - http://YOURSTORE/paj/www/MagentoFacebookStoreFront/?mobile
+
+Page Tab
+Secure Page Tab URL - https://YOURSTORE/paj/www/MagentoFacebookStoreFront/
 
 
 ### Configuration
 
-
-	
-
+see : lib/PAJ/Application/MagentoFacebookStoreFront/config.php
 
 
 ## License

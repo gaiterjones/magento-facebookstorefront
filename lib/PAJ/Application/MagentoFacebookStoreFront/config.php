@@ -26,13 +26,13 @@ class config
 	const showProductPrice=true;
 	
 	// facebook application id
-	const fbAppID = '1659084167700338';
+	const fbAppID = 'XXX';
 	// facebook application secret
-	const fbAppSecret = '86da9de0b2909fa217ff9b7466f22e9e';		
+	const fbAppSecret = 'XXX';		
 	// The URL to the facebook page or tab
-	const fbURL = 'https://apps.facebook.com/1659084167700338';
+	const fbURL = 'https://apps.facebook.com/XXX';
 	// The URL to the facebook app canvas url
-	const fbAppTabURL = 'https://apps.facebook.com/1659084167700338';
+	const fbAppTabURL = 'https://apps.facebook.com/XXX';
 	// The URL to the facebook tab
 	const fbAppCanvasURL = '';
 	// The URL to the facebook page or tab
@@ -41,7 +41,7 @@ class config
 	const appIcon = 'icon.png';
 	
 	// configure memcache
-	const useMemcache=true;
+	const useMemcache=false;
 	const memcacheServer='localhost';
 	const memcacheServerPort='11211';
 	const memcacheTTL='604800';
