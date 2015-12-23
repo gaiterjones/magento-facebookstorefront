@@ -1,0 +1,8 @@
+Upload=Hochladen
+Loading...=wird geladen...
+Complete=Fertig
+en_GB=de_DE
+About=Impressum
+welcome to paradiez=Willkommen in ParaDiez
+coming soon=mehr in Kürze
+from=ab
