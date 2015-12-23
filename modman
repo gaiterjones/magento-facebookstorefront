@@ -1,4 +1,3 @@
 # modman file for MagentoFacebookStoreFront
-lib/PAJ/Library/ lib/PAJ/Library/
 lib/PAJ/Application/MagentoFacebookStoreFront/ lib/PAJ/Application/MagentoFacebookStoreFront/
 paj/ paj/
