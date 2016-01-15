@@ -50,9 +50,29 @@ class Connect
 			
 			include_once($this->__config->get('pathToMagentoApp'));
 			
-		} else if (file_exists(ROOT_DIR . $this->__config->get('pathToMagentoApp'))) {
+		} else if (defined('ROOT_DIR')) {
+		
+			if (file_exists(ROOT_DIR . $this->__config->get('pathToMagentoApp'))) {
 			
-			include_once(ROOT_DIR . $this->__config->get('pathToMagentoApp'));
+				include_once(ROOT_DIR . $this->__config->get('pathToMagentoApp'));
+			
+			} else if (strpos(ROOT_DIR, '.modman') !== false) {
+				
+				$_modmanPath=substr(ROOT_DIR, 0, strpos(ROOT_DIR, '.modman'));
+								
+				//throw new \Exception('modman found at '. $_modmanPath);
+				
+				if (file_exists($_modmanPath. '/magento/app/Mage.php')) {
+					
+					include_once($_modmanPath. '/magento/app/Mage.php');
+					
+				} else {
+					throw new \Exception('modman found at '. $_modmanPath. ' could not find Magento...');
+				}
+			
+			} else {
+				throw new \Exception('Mage NOT Found at '. ROOT_DIR . $this->__config->get('pathToMagentoApp'));
+			}
 			
 		} else {
 
