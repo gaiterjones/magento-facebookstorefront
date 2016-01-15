@@ -11,8 +11,8 @@ https://www.facebook.com/gaiterjones-243428839036258/app/1659084167700338/
 
 ### Version
 ***
-	@version		2.0.0
-	@since			12 2015
+	@version		2.0.1
+	@since			01 2016
 	@author			gaiterjones
 	@documentation	blog.gaiterjones.com
 	@twitter		twitter.com/gaiterjones
@@ -22,8 +22,6 @@ https://www.facebook.com/gaiterjones-243428839036258/app/1659084167700338/
 Copy all files to your Magento root folder or use modman.
 
 modman clone https://github.com/gaiterjones/magento-facebookstorefront
-
-modman clone https://github.com/gaiterjones/magento-paj-library
 
 Test standalone by visiting
 
