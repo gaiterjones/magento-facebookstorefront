@@ -27,15 +27,28 @@ class Data extends \PAJ\Library\Magento\Connect {
 
 	}
 	
-	public function getCategories($_storeId=0) {
+	public function getCategories($_storeId=0,$_includeChildren=true) {
 	
-		// get category collection
-		$_collection= \Mage::getModel('catalog/category')
-			->getCollection() 
-			->setStoreId($_storeId)
-			->addAttributeToSelect('name') 
-			->addAttributeToSelect('is_active');
-		
+		if ($_includeChildren)
+		{
+			// get category collection
+			$_collection= \Mage::getModel('catalog/category')
+				->getCollection() 
+				->setStoreId($_storeId)
+				->addAttributeToSelect('name') 
+				->addAttributeToSelect('is_active')
+				->addAttributeToFilter('is_active', 1);
+		} else {
+			// get category collection
+			$_collection= \Mage::getModel('catalog/category')
+				->getCollection() 
+				->setStoreId($_storeId)
+				->addAttributeToSelect('name') 
+				->addAttributeToSelect('is_active')
+				->addAttributeToFilter('is_active', 1)
+				->addAttributeToFilter('level', 2); //2 is first level
+		}
+			
 		$_categoryProductCount=array();	
 		
 		// determine categories that contain products

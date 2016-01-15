@@ -60,6 +60,7 @@ class config
 	
 	// define path to Magento app
 	const pathToMagentoApp ='/../../../../app/Mage.php';
+	const includeSubCategories = false;
 	
 	public $_serverURL;
 	public $_serverPath;

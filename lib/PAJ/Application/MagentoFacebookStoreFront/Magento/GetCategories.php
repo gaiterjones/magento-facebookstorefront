@@ -50,7 +50,7 @@ class GetCategories extends Loader {
 			
 			$_storeID=$this->get('storeid');
 			
-			$this->getCategoryCollection($_storeID);
+			$this->getCategoryCollection($_storeID,$this->__config->get('includeSubCategories'));
 			
 			$_categories=$this->get('categories');
 			
@@ -89,11 +89,11 @@ class GetCategories extends Loader {
 	
 	}
 	
-	private function getCategoryCollection($_storeID=0)
+	private function getCategoryCollection($_storeID=0,$_includeChildren=true)
 	{
 		$_obj=new \PAJ\Library\Magento\Collection\Data();
 		
-		$_obj->getCategories($_storeID);
+		$_obj->getCategories($_storeID,$_includeChildren);
 		
 		$this->set('categories',$_obj->get('categories'));
 		$this->set('categoriesproductcount',$_obj->get('categoriesproductcount'));
