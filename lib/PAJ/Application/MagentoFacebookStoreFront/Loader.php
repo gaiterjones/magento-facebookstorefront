@@ -148,7 +148,7 @@ class Loader
 				));
 				
 				
-				$_request_headers        = apache_request_headers();
+				$_request_headers        = $this->apache_request_headers();
 				$_http_origin            = $_request_headers['Origin'];
 				
 				// allowed domains for this ajax request:
@@ -271,6 +271,52 @@ class Loader
 			}
 			
 		}
+		
+		protected function apache_request_headers() {
+
+			// Based on: http://www.iana.org/assignments/message-headers/message-headers.xml#perm-headers
+			$arrCasedHeaders = array(
+				// HTTP
+				'Dasl'             => 'DASL',
+				'Dav'              => 'DAV',
+				'Etag'             => 'ETag',
+				'Mime-Version'     => 'MIME-Version',
+				'Slug'             => 'SLUG',
+				'Te'               => 'TE',
+				'Www-Authenticate' => 'WWW-Authenticate',
+				// MIME
+				'Content-Md5'      => 'Content-MD5',
+				'Content-Id'       => 'Content-ID',
+				'Content-Features' => 'Content-features',
+			);
+			$arrHttpHeaders = array();
+
+			foreach($_SERVER as $strKey => $mixValue) {
+				if('HTTP_' !== substr($strKey, 0, 5)) {
+					continue;
+				}
+
+				$strHeaderKey = strtolower(substr($strKey, 5));
+
+				if(0 < substr_count($strHeaderKey, '_')) {
+					$arrHeaderKey = explode('_', $strHeaderKey);
+					$arrHeaderKey = array_map('ucfirst', $arrHeaderKey);
+					$strHeaderKey = implode('-', $arrHeaderKey);
+				}
+				else {
+					$strHeaderKey = ucfirst($strHeaderKey);
+				}
+
+				if(array_key_exists($strHeaderKey, $arrCasedHeaders)) {
+					$strHeaderKey = $arrCasedHeaders[$strHeaderKey];
+				}
+
+				$arrHttpHeaders[$strHeaderKey] = $mixValue;
+			}
+
+			return $arrHttpHeaders;
+
+		}			
 		
 		public function set($key,$value)
 		{

@@ -11,7 +11,7 @@
 //
 
 namespace PAJ\Application\MagentoFacebookStoreFront;
-
+error_reporting(0);
 define('ROOT_DIR', dirname(__FILE__));
 
 class config
