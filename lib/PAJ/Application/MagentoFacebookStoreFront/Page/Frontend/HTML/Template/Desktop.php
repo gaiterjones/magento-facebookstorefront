@@ -1,7 +1,7 @@
 <?php
 /**
  *  
- *  Copyright (C) 2014 paj@gaiterjones.com
+ *  Copyright (C) 2016 paj@gaiterjones.com
  *
  * 	
  *

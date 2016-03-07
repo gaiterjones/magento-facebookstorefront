@@ -1,7 +1,7 @@
 <?php
 /**
  *  
- *  Copyright (C) 2014
+ *  Copyright (C) 2016
  *
  *
  *  @who	   	PAJ

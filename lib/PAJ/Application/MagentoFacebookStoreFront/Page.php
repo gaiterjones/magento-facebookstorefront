@@ -1,7 +1,7 @@
 <?php
 /**
  *  
- *  Copyright (C) 2013
+ *  Copyright (C) 2016
  *
  *
  *  @who	   	PAJ
@@ -44,6 +44,74 @@ class Page {
 			
 			$this->__t=new \PAJ\Library\Language\Translator($_languageCode);
 		}
+		
+		
+		/**
+		 * renderPage function.
+		 * 
+		 * @access private
+		 * @return void
+		 */
+		protected function createPage($_validSubPages=false)
+		{
+			$_HTMLArray=$this->get('html');
+			$_errorMessage=$this->get('errorMessage');
+			$_subPage=$this->get('requestedsubpage');
+			$_pageHtml='';
+			
+			/* render html from html array */
+			foreach ($_HTMLArray as $_obj)
+			{
+				$_usePageHtml=false;
+				
+				foreach ($_obj as $_key=>$_value)
+				{
+					
+					if ($_key === 'page')
+					{				
+						$_array=$_value;
+						foreach ($_array as $_key=>$_page)
+						{
+							// render default html
+							if ($_page == '*')	{$_usePageHtml=true;}
+						
+							if (empty($_errorMessage))
+							{
+								// no errors
+								if ($_validSubPages)
+								{
+									foreach ($_validSubPages as $_validSubPage => $_data)
+									{
+										if ($_subPage === $_validSubPage && $_page == $_validSubPage)	{$_usePageHtml=true; }
+									}
+								}
+							
+							} else {
+							
+								// display error html
+								
+								if ($_page == 'error')	{$_usePageHtml=true; }
+								
+							}
+						
+						}
+	
+					}
+					
+					if ($_key === 'html')
+					{
+						if ($_usePageHtml)
+						{
+							$_pageHtml=$_pageHtml.$_value;
+						}
+					}
+	
+				}
+	
+			}
+			
+			$this->set('pageHtml',$_pageHtml);
+		}			
 	
 	    function __destruct() {
 	       

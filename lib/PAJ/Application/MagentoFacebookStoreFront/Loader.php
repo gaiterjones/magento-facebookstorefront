@@ -1,7 +1,7 @@
 <?php
 /**
  *  
- *  Copyright (C) 2014
+ *  Copyright (C) 2016
  *
  *
  *  @who	   	PAJ
@@ -36,11 +36,6 @@ class Loader
 	    {
 	    	$this->set('errorMessage', 'ERROR : '. $e->getMessage(). "\n". ' <!-- <br><pre>'. "\n". $this->getExceptionTraceAsString($e). '</pre> -->');
 			
-			// log to logging module
-			if ($this->__config->get('loggingEnabled')) {
-				\PAJ\Library\Log\Helper::logThis('EXCEPTION : '. $e->getMessage(),$this->__config->get('applicationName'),true,$this->__config->get('logFilePath').'log',false);
-			}			
-						
 	    	if (php_sapi_name() != 'cli') {
 				$this->set('requestedpage','frontend_home');
 				$this->renderPage();
@@ -98,6 +93,8 @@ class Loader
 		if(isset($_GET['class'])){ $_ajaxClass = $_GET['class'];} else { $_ajaxClass = false;}
 		
 		if(isset($_GET['page'])){ $_defaultSubPage = $_GET['page'];}
+		
+		if(isset($_GET['error'])){ throw new \Exception('Error testing...');}
 		
 		if(isset($_GET['gui'])){
 			$_defaultGUI = $_GET['gui'];
@@ -316,7 +313,7 @@ class Loader
 
 			return $arrHttpHeaders;
 
-		}			
+		}				
 		
 		public function set($key,$value)
 		{

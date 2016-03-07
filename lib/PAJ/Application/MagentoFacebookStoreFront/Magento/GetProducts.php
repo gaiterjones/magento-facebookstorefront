@@ -1,7 +1,7 @@
 <?php
 /**
  *  
- *  Copyright (C) 2015 paj@gaiterjones.com
+ *  Copyright (C) 2016 paj@gaiterjones.com
  *
  * 	?ajax&class=PAJ_Application_MagentoFacebookStoreFront_Magento_GetProducts&variables=blah=blah
  *
