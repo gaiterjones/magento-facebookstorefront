@@ -5,18 +5,20 @@ A simple, fast, responsive Magento CE v1.x store front application for Facebook.
 ### Synopsis
 Storefront designed to be used within a Facebook app as a stepping stone to a Magento store.
 
+Updated for Mage 1.9.4.0 on PHP 7.X
+
 ### Demo
 https://www.facebook.com/gaiterjones-243428839036258/app/1659084167700338/
 
 
 ### Version
 ***
-	@version		2.0.1
-	@since			01 2016
+	@version		2.0.2
+	@since			12 2018
 	@author			gaiterjones
 	@documentation	blog.gaiterjones.com
 	@twitter		twitter.com/gaiterjones
-	
+
 ### Installation
 
 Copy all files to your Magento root folder or use modman.
